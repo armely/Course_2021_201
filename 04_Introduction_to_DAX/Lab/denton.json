@@ -1,0 +1,7 @@
+{
+    "name": "CityofDenton",
+    "dataColors": ["#1b51a4", "#ea1c2d", "#4f4380", "#404040", "#5ac8fa", "#5056d6", "#ff2d55"],
+    "background":"#FFFFFF",
+    "foreground": "#404040",
+    "tableAccent": "#05bbc4"
+}

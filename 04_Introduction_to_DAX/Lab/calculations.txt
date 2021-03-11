@@ -1,0 +1,36 @@
+Profit = sum(fact_sales[revenue]) - sum(fact_sales[cost])
+
+Revenue YoY % = DIVIDE(sum(fact_sales[revenue])  - CALCULATE(sum(fact_sales[revenue]) , SAMEPERIODLASTYEAR('dim_date'[date])), CALCULATE(sum(fact_sales[revenue]) , SAMEPERIODLASTYEAR('dim_date'[date])))
+
+
+AI Revenue = SUMX(FILTER(fact_sales, RELATED(dim_productcategory[ProductCategory_name])="AI"),fact_sales[revenue])
+
+
+GP Revenue = SUMX(FILTER(fact_sales, RELATED(dim_productcategory[ProductCategory_name])="General Purpose"),fact_sales[revenue])
+
+
+Utility Revenue = SUMX(FILTER(fact_sales, RELATED(dim_productcategory[ProductCategory_name])="Utility"),fact_sales[revenue])
+
+First name = LEFT(SUBSTITUTE(dim_region[Manager]," ","-"),SEARCH("-",SUBSTITUTE(dim_region[Manager]," ","-"))-1)
+
+Syntax =
+var
+sales_margin = SUM(SALES[ SUM(SALES[COST])
+RETURN
+IF (
+Sales_margin > 1000, Sales_Margin *0.3, Sales_margin *
+
+
+LEFT(
+	SUBSTITUTE(dim_region[Manager]," ","-"),
+	SEARCH("-",SUBSTITUTE(dim_region[Manager]," ","-"))
+	-1
+)
+
+
+RIGHT
+	(SUBSTITUTE(dim_region[Manager]," ","-"),
+	LEN(SUBSTITUTE(dim_region[Manager]," ","-"))-
+	SEARCH("-",SUBSTITUTE(dim_region[Manager]," ","-"))
+
+)
